@@ -25,7 +25,8 @@ export function onData (context: Context) {
 
       await createPriceLoop(context, message)
 
-      // re-trigger the flow every 10 mins
+      // re-trigger the last bid every 10 mins in the event
+      // so you can re-evaluate against price changes
       priceLoop = setInterval(async () => {
         await createPriceLoop(context, message)
       }, 600000)
@@ -35,6 +36,8 @@ export function onData (context: Context) {
 
 async function createPriceLoop (context, message) {
   context.log('----- Start Calculations -----\n')
+
+  // execute the pricing model; price to bid is returned
   const price = await calculatePrice(context, message)
 
   let gasPrice

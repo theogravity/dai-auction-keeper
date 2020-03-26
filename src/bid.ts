@@ -29,6 +29,10 @@ export async function calculatePrice (context: Context, data: IBidMessage) {
   let marketRate
 
   try {
+    // get the price of the currency
+    // if currency = ETH
+    // rate = DAI
+    // then the market rate is 1 ETH = x DAI
     marketRate = await getCurrencyRate(context.currency, context.rate)
   } catch (e) {
     context.log('Could not get price rate: ' + e.message)
