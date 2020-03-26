@@ -8,6 +8,7 @@ I offer no assistance with this code, and take no responsibility for loss in fun
 
 - node.js 12
 - understanding of node.js / javascript / typescript
+- have a working `auction-keeper` bot ready to accept a model
 
 # Usage
 
