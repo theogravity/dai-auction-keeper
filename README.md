@@ -28,7 +28,11 @@ Executing the model does the following
 
 # Usage
 
-- Create a `.env` file in this project with the following data
+## Configuration 
+
+### Environment settings
+
+Create a `.env` file in this project with the following data:
 
 ```env
 # This is used to skip incoming bids that were made by your address
@@ -36,21 +40,36 @@ Executing the model does the following
 ETH_ADDR=<Your ethereum address>
 ```
 
-- `bid.ts` is where you would write your model pricing logic. Return a non-zero value to make a bid.
+### Build pricing model logic
+
+`bid.ts` is where you would write your model pricing logic. 
+
+Return a non-zero value to make a bid.
+
 Be aware that for `dent` auctions, there are [specific rules](https://github.com/makerdao/auction-keeper/blob/master/auction_keeper/strategy.py#L87) 
-that determine the price you should send. By default, it will not send a bid (by returning a 0 price). 
+that determine the price you should send. 
+
+By default, it will not send a bid (by returning a 0 price). 
 You must define logic to determine what bid to send.
 
-# Building
+## Building
 
 `$ npm run build`
 
 The built files are located in `build/`.
 
-# Executing
+## Executing
 
 - Make sure the `build/bin/*` files have read/execute permission
 - Logs are written to `/tmp/auction-${currency}-${auction-id}.txt`
 - Execute the model using `bin/bat.ts` for BAT and `bin/eth.ts` for ETH auctions.
 
 `$ <path-to-auction-keeper>/flip-eth-a.sh <path-to-dai-auction-keeper>/build/bin/eth.js`
+
+## Troubleshooting
+
+If you are unsure if the `auction-keeper` bot is sending a bid, enable the `--debug` flag in the `auction-keeper` options to see if the bid was sent or not. 
+
+# Disclaimer
+
+YOU (MEANING ANY INDIVIDUAL OR ENTITY ACCESSING, USING OR BOTH THE SOFTWARE INCLUDED IN THIS GITHUB REPOSITORY) EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SOFTWARE IS AT YOUR SOLE RISK. THE SOFTWARE IN THIS GITHUB REPOSITORY IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. YOU RELEASE AUTHORS OR COPYRIGHT HOLDERS FROM ALL LIABILITY FOR YOU HAVING ACQUIRED OR NOT ACQUIRED CONTENT IN THIS GITHUB REPOSITORY. THE AUTHORS OR COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS CONCERNING ANY CONTENT CONTAINED IN OR ACCESSED THROUGH THE SERVICE, AND THE AUTHORS OR COPYRIGHT HOLDERS WILL NOT BE RESPONSIBLE OR LIABLE FOR THE ACCURACY, COPYRIGHT COMPLIANCE, LEGALITY OR DECENCY OF MATERIAL CONTAINED IN OR ACCESSED THROUGH THIS GITHUB REPOSITORY.
