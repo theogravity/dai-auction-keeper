@@ -16,6 +16,6 @@ const context = new Context(id, {
   rate: 'DAI'
 })
 
-context.log(`Started: ${new Date().toUTCString()}\n`)
+context.log(`*** Started: ${new Date().toUTCString()}\n`)
 
 stdin.on('data', onData(context))

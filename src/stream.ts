@@ -56,10 +56,14 @@ async function createPriceLoop (context, message) {
         gasPrice
       }) + '\n'
 
+    context.log('--> Sending out bid\n')
+
     context.log(out)
 
     context.stdout.write(out)
   }
+
+  context.log('----- End Calculations -----\n')
 
   clearInterval(priceLoop)
   priceLoop = null

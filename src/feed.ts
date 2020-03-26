@@ -5,6 +5,7 @@ const RATE_FEED_URL = 'https://api.coinbase.com/v2/exchange-rates'
 const GAS_FEED_URL = 'https://www.etherchain.org/api/gasPriceOracle'
 const GWEI_TO_WEI_FACTOR = 1000000000
 
+// Gets the latest currency price
 export async function getCurrencyRate (currency: string, rate: string) {
   const rates: CoinbaseApi.IExchangeRateRes = await request({
     url: RATE_FEED_URL,

@@ -1,3 +1,4 @@
+// https://docs.makerdao.com/keepers/auction-keepers/auction-keeper-bot-setup-guide#glossary-bidding-models
 export interface IBidMessage {
   id: string
   flipper: string

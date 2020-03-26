@@ -18,11 +18,25 @@ export interface ContextParams {
 }
 
 export class Context {
+  /**
+   * Logger instance
+   */
   log: any
+  /**
+   * Auction id sent from auction-keeper
+   */
   id: string
   stdout: WritableStream
   stdin: ReadableStream
+  /**
+   * Currency that is being bid on
+   */
   currency: string
+  /**
+   * rate to use when quoting the currency
+   * ex: currency = ETH, rate = DAI
+   * Then pricing data will be 1 ETH = x DAI
+   */
   rate: string
 
   constructor (id: string, params: ContextParams) {
