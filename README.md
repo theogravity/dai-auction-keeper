@@ -45,6 +45,8 @@ You must define logic to determine what bid to send.
 
 `$ npm run build`
 
+The built files are located in `build/`.
+
 # Executing
 
 - Make sure the `build/bin/*` files have read/execute permission
