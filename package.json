@@ -1,8 +1,8 @@
 {
-  "name": "boilerplate-typescript",
+  "name": "dai-auction-keeper",
   "private": true,
   "version": "1.0.0",
-  "description": "My personal boilerplate for new projects using typescript",
+  "description": "Example model written in typescript for the MakerDAO auction-keeper bot",
   "main": "build/index.js",
   "bin": {
     "eth-model": "build/eth.js"
@@ -32,14 +32,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/theogravity/boilerplate.git"
+    "url": "git+https://github.com/theogravity/dai-auction-keeper.git"
   },
   "author": "Theo Gravity <theo@suteki.nu>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/theogravity/boilerplate/issues"
+    "url": "https://github.com/theogravity/dai-auction-keeper/issues"
   },
-  "homepage": "https://github.com/theogravity/boilerplate#readme",
+  "homepage": "https://github.com/theogravity/dai-auction-keeper#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "minimist": "^1.2.5",
