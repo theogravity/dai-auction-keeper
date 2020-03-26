@@ -4,13 +4,16 @@
   "version": "1.0.0",
   "description": "My personal boilerplate for new projects using typescript",
   "main": "build/index.js",
+  "bin": {
+    "eth-model": "build/eth.js"
+  },
   "types": "build/index.d.ts",
   "scripts": {
-    "build": "npm run build:clean && npm run compile",
+    "build": "npm run lint && npm run build:clean && npm run compile && chmod +x build/bin/*",
     "compile": "tsc",
     "build:clean": "rm -rf build/*",
-    "debug": "ts-node-dev --inspect -- src/index.ts",
-    "debug:break": "ts-node-dev --inspect-brk -- src/index.ts",
+    "debug": "ts-node-dev --inspect -- src/bin/eth.ts",
+    "debug:break": "ts-node-dev --inspect-brk -- src/bin/eth.ts",
     "test": "jest",
     "test:debug": "node --inspect-brk node_modules/.bin/jest",
     "test:watch": "jest --watch",
@@ -24,7 +27,7 @@
     "changelog:verify": "changelog-version verify",
     "changelog:prepare": "changelog-version prepare",
     "changelog:release": "changelog-version release",
-    "lint": "prettier-standard src/**/*.ts && standard src/**/*.ts",
+    "lint": "prettier-standard src/**/*.ts && standardx src/**/*.ts",
     "ts-node-dev": "ts-node-dev"
   },
   "repository": {
@@ -37,32 +40,36 @@
     "url": "https://github.com/theogravity/boilerplate/issues"
   },
   "homepage": "https://github.com/theogravity/boilerplate#readme",
-  "dependencies": {},
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "minimist": "^1.2.5",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8"
+  },
   "devDependencies": {
     "@theo.gravity/changelog-version": "2.1.10",
     "@theo.gravity/version-bump": "1.2.6",
-    "@types/jest": "24.0.23",
-    "@types/node": "^12.12.14",
-    "@typescript-eslint/eslint-plugin": "2.10.0",
-    "@typescript-eslint/parser": "2.10.0",
-    "eslint": "6.7.2",
-    "jest": "24.9.0",
-    "jest-cli": "24.9.0",
+    "@types/jest": "25.1.4",
+    "@types/node": "^13.9.1",
+    "@types/request": "^2.48.4",
+    "@types/request-promise-native": "^1.0.17",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "6.8.0",
+    "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
     "jest-junit-reporter": "1.1.0",
-    "lint-staged": "9.5.0",
+    "lint-staged": "10.0.8",
     "pre-commit": "1.2.2",
-    "prettier-standard": "16.1.0",
-    "standard": "14.3.1",
+    "prettier-standard": "16.2.1",
+    "standardx": "^5.0.0",
     "toc-md-alt": "^0.3.2",
-    "ts-jest": "24.2.0",
-    "ts-node": "8.5.4",
-    "ts-node-dev": "1.0.0-pre.40",
-    "typescript": "3.7.3"
+    "ts-jest": "25.2.1",
+    "ts-node": "8.6.2",
+    "ts-node-dev": "1.0.0-pre.44",
+    "typescript": "3.8.3"
   },
-  "standard": {
-    "ignore": [
-      "build/"
-    ],
+  "standardx": {
     "parser": "@typescript-eslint/parser",
     "plugins": [
       "@typescript-eslint/eslint-plugin"
@@ -78,16 +85,5 @@
     "lint-staged",
     "test",
     "build"
-  ],
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.ts"
-    ],
-    "testResultsProcessor": "./node_modules/jest-junit-reporter",
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "/build",
-      "/node_modules/"
-    ]
-  }
+  ]
 }
